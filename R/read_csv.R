@@ -21,11 +21,13 @@ read_delim <- function(file, delim = NULL, parsers = NULL, col_names = TRUE,
     col_names = col_names, na_strings = na_strings, ...)
 
   if (is.character(file)) {
-    read_csv_from_file(file, spec$column$parsers, spec$column$col_names,
-      n = as.integer(spec$line$n), skip = as.integer(spec$line$skip))
+    read_csv_from_file(file,
+                       spec$column$parsers, spec$column$col_names, spec$column$na_strings,
+                       n = as.integer(spec$line$n), skip = as.integer(spec$line$skip))
   } else {
-    read_csv_from_connection(file, spec$column$parsers, spec$column$col_names,
-      n = as.integer(spec$line$n), skip = as.integer(spec$line$skip))
+    read_csv_from_connection(file,
+                             spec$column$parsers, spec$column$col_names, spec$column$na_strings,
+                             n = as.integer(spec$line$n), skip = as.integer(spec$line$skip))
   }
 }
 

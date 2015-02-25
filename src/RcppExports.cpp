@@ -236,8 +236,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // read_csv_from_file
-List read_csv_from_file(std::string path, List parser_spec, CharacterVector col_names, int n = 0, int skip = 0);
-RcppExport SEXP fastread_read_csv_from_file(SEXP pathSEXP, SEXP parser_specSEXP, SEXP col_namesSEXP, SEXP nSEXP, SEXP skipSEXP) {
+List read_csv_from_file(std::string path, List parser_spec, CharacterVector col_names, CharacterVector na_strings = NA_STRING, int n = 0, int skip = 0);
+RcppExport SEXP fastread_read_csv_from_file(SEXP pathSEXP, SEXP parser_specSEXP, SEXP col_namesSEXP, SEXP na_stringsSEXP, SEXP nSEXP, SEXP skipSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
@@ -245,9 +245,10 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< std::string >::type path(pathSEXP );
         Rcpp::traits::input_parameter< List >::type parser_spec(parser_specSEXP );
         Rcpp::traits::input_parameter< CharacterVector >::type col_names(col_namesSEXP );
+        Rcpp::traits::input_parameter< CharacterVector >::type na_strings(na_stringsSEXP );
         Rcpp::traits::input_parameter< int >::type n(nSEXP );
         Rcpp::traits::input_parameter< int >::type skip(skipSEXP );
-        List __result = read_csv_from_file(path, parser_spec, col_names, n, skip);
+        List __result = read_csv_from_file(path, parser_spec, col_names, na_strings, n, skip);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
@@ -255,8 +256,8 @@ BEGIN_RCPP
 END_RCPP
 }
 // read_csv_from_connection
-List read_csv_from_connection(SEXP conn, List parser_spec, CharacterVector col_names, int n = 0, int skip = 0);
-RcppExport SEXP fastread_read_csv_from_connection(SEXP connSEXP, SEXP parser_specSEXP, SEXP col_namesSEXP, SEXP nSEXP, SEXP skipSEXP) {
+List read_csv_from_connection(SEXP conn, List parser_spec, CharacterVector col_names, CharacterVector na_strings = NA_STRING, int n = 0, int skip = 0);
+RcppExport SEXP fastread_read_csv_from_connection(SEXP connSEXP, SEXP parser_specSEXP, SEXP col_namesSEXP, SEXP na_stringsSEXP, SEXP nSEXP, SEXP skipSEXP) {
 BEGIN_RCPP
     SEXP __sexp_result;
     {
@@ -264,9 +265,10 @@ BEGIN_RCPP
         Rcpp::traits::input_parameter< SEXP >::type conn(connSEXP );
         Rcpp::traits::input_parameter< List >::type parser_spec(parser_specSEXP );
         Rcpp::traits::input_parameter< CharacterVector >::type col_names(col_namesSEXP );
+        Rcpp::traits::input_parameter< CharacterVector >::type na_strings(na_stringsSEXP );
         Rcpp::traits::input_parameter< int >::type n(nSEXP );
         Rcpp::traits::input_parameter< int >::type skip(skipSEXP );
-        List __result = read_csv_from_connection(conn, parser_spec, col_names, n, skip);
+        List __result = read_csv_from_connection(conn, parser_spec, col_names, na_strings, n, skip);
         PROTECT(__sexp_result = Rcpp::wrap(__result));
     }
     UNPROTECT(1);
