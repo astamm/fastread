@@ -42,6 +42,12 @@ logical_parser <- function() {
 }
 
 #' @rdname parser
+#' @export
+date_parser <- function() {
+  parser("Date")
+}
+
+#' @rdname parser
 #' @param levels A character vector listing all valid levels of the factor.
 #' @param ordered Create an ordered factor?
 #' @export

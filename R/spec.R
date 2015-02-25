@@ -167,6 +167,7 @@ parse_parser_string <- function(x) {
     d = double_parser(),
     i = integer_parser(),
     l = logical_parser(),
+    D = date_parser(),
     "_" = skip_parser()
   )
 
