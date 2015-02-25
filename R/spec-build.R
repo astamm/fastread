@@ -21,6 +21,7 @@ build_delim_spec <- function(file, delim = NULL, parsers = NULL,
   }
 
   if (is.null(parsers) || isTRUE(col_names) || isFALSE(col_names)) {
+    # TO DO: randomize the 30 lines that are read for guessing
     lines <- parse_lines_from_file(file, skip = skip, n = 30)
     if (length(lines) == 0) stop("No lines found in ", file, call. = FALSE)
     fields <- lapply(lines, parse_delimited_fields, delim = delim)
@@ -144,7 +145,7 @@ guess_delim <- function(file, n = 30, skip = 0, comment_char = "", quote = "\"",
   # Integer number of delimiters per line is best
   is_int <- round(per_line) == per_line
   if (sum(is_int) == 0) {
-    stop("Could not guess delimter")
+    stop("Could not guess delimeter")
   } else if (sum(is_int) == 1) {
     # Only one delim is used on every line
     delim <- names(per_line)[is_int]
